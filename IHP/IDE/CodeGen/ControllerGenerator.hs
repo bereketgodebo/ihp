@@ -90,7 +90,7 @@ generateController schema config =
         idFieldName = lcfirst singularName <> "Id"
         model = ucfirst singularName
         paginationEnabled = get #paginationEnabled config
-
+        {-
         indexAction =
             ""
             <> "    action " <> pluralName <> "Action = do\n"
@@ -99,7 +99,8 @@ generateController schema config =
                     <> "        " <> modelVariablePlural <> " <- " <> modelVariablePlural <> "Q |> fetch\n"
                 else "        " <> modelVariablePlural <> " <- query @" <> model <> " |> fetch\n"
             )
-            <> "        render IndexView { .. }\n"
+            <> "        render IndexView { .. }\n" 
+        -}
 
         indexAction = [|text 
                 action #{pluralName}Action = do 
